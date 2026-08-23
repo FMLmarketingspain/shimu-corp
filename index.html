@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shimu — Connecting Opportunities. Empowering Communities.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700;900&family=Karla:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1712;
+    --paper:#f3eee2;
+    --gold:#c4922f;
+    --indigo:#24425c;
+    --rust:#a8462c;
+    --stone:#7a7266;
+    --paper-dim:#e9e2d1;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  h1,h2,h3{font-family:'Frank Ruhl Libre', serif; font-weight:600; line-height:1.08; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Fragment Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold);}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(28,23,18,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(196,146,47,0.25);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 32px; max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:14px; color:var(--paper);}
+  .brand-mark{width:44px; height:44px; flex-shrink:0; object-fit:cover; border-radius:50%; border:1px solid rgba(196,146,47,0.4);}
+  .brand-text{font-family:'Karla', sans-serif; font-size:0.95rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;}
+  .brand-text span{display:block; font-family:'Fragment Mono', monospace; font-size:0.6rem; letter-spacing:0.14em; color:var(--gold); font-weight:400; margin-top:4px; text-transform:uppercase;}
+  .navlinks{display:flex; gap:30px; font-size:0.86rem; color:var(--paper-dim);}
+  .navlinks a{position:relative; padding:4px 0; transition:color .2s;}
+  .navlinks a:hover{color:var(--gold);}
+  .navlinks a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold); transition:width .25s;}
+  .navlinks a:hover::after{width:100%;}
+  .navlinks a.cta-link{
+    color:var(--ink); background:var(--gold); padding:9px 18px; border-radius:2px; font-weight:500;
+  }
+  .navlinks a.cta-link::after{display:none;}
+  .navlinks a.cta-link:hover{background:#d6a445; color:var(--ink);}
+  .burger{display:none; color:var(--paper); font-family:'Fragment Mono',monospace; font-size:0.8rem; letter-spacing:0.08em; background:none; border:1px solid rgba(243,238,226,0.3); padding:8px 14px; border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; background:var(--ink); color:var(--paper);
+    padding:100px 0 0; overflow:hidden;
+  }
+  .hero-inner{position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:20px 32px 80px;}
+  .hero-logo{width:78px; height:78px; object-fit:cover; border-radius:50%; margin-bottom:26px; border:1px solid rgba(196,146,47,0.5); filter:drop-shadow(0 8px 24px rgba(196,146,47,0.2));}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.2vw, 4.2rem);
+    max-width:16ch; margin:18px 0 24px;
+    color:#faf6ec;
+  }
+  .hero h1 em{font-style:italic; color:var(--gold); font-weight:500;}
+  .hero p.lede{
+    max-width:52ch; font-size:1.1rem; line-height:1.6; color:#cfc6b3; margin-bottom:34px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  .btn-primary{
+    background:var(--gold); color:var(--ink); padding:14px 26px; border-radius:2px;
+    font-weight:600; font-size:0.95rem; transition:transform .2s, background .2s; display:inline-block;
+  }
+  .btn-primary:hover{background:#d6a445; transform:translateY(-1px);}
+  .btn-ghost{
+    color:var(--paper); padding:14px 6px; font-size:0.95rem; border-bottom:1px solid rgba(243,238,226,0.4);
+    transition:border-color .2s, color .2s;
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+  .hero-photo{
+    position:relative; width:100%; height:340px; overflow:hidden;
+    border-top:1px solid rgba(196,146,47,0.3);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:center 35%; opacity:0.88;}
+  .hero-photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(28,23,18,0.75) 0%, rgba(28,23,18,0.15) 30%, rgba(28,23,18,0.55) 100%);
+  }
+  .hero-photo-caption{
+    position:absolute; bottom:18px; right:32px; z-index:3;
+    font-family:'Fragment Mono', monospace; font-size:0.68rem; letter-spacing:0.08em;
+    color:rgba(243,238,226,0.75); text-transform:uppercase;
+  }
+
+  /* ---------- PILLARS STRIP ---------- */
+  .pillars{background:var(--indigo); position:relative; padding:52px 0 56px;}
+  .pillars-inner{
+    max-width:1180px; margin:0 auto; padding:0 32px;
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+  }
+  .pillar{
+    border-left:2px solid var(--gold); padding:6px 0 6px 18px; color:var(--paper);
+  }
+  .pillar h4{font-family:'Frank Ruhl Libre', serif; font-size:1.15rem; font-weight:600; margin-bottom:8px; color:#faf6ec;}
+  .pillar p{font-size:0.86rem; line-height:1.5; color:#c9c0ac;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:92px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.4rem);}
+  .section-head p{max-width:40ch; color:var(--stone); font-size:0.98rem; line-height:1.55;}
+
+  /* ---------- ABOUT / SPLIT ---------- */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .split img{border-radius:4px; width:100%; height:380px; object-fit:cover;}
+  .split-copy p{color:var(--stone); line-height:1.7; margin-bottom:16px; font-size:1rem;}
+  .split-copy p:last-child{margin-bottom:0;}
+  .tag-line{
+    font-family:'Frank Ruhl Libre', serif; font-style:italic; font-size:1.2rem; color:var(--ink);
+    border-left:2px solid var(--rust); padding-left:16px; margin:22px 0;
+  }
+
+  /* ---------- MINING (dark banner) ---------- */
+  .mining-band{background:var(--ink); color:var(--paper); padding:0;}
+  .mining-media{position:relative; height:420px; overflow:hidden;}
+  .mining-media img{width:100%; height:100%; object-fit:cover;}
+  .mining-media::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(28,23,18,0.1) 0%, rgba(28,23,18,0.85) 100%);}
+  .mining-copy{max-width:1180px; margin:0 auto; padding:64px 32px 88px;}
+  .mining-copy .eyebrow{margin-bottom:18px;}
+  .mining-copy h2{color:#faf6ec; font-size:clamp(1.8rem, 3vw, 2.4rem); max-width:22ch; margin-bottom:20px;}
+  .mining-copy p{color:#cfc6b3; line-height:1.7; max-width:64ch; margin-bottom:18px; font-size:1.02rem;}
+  .mining-quote{
+    font-family:'Frank Ruhl Libre', serif; font-style:italic; font-size:1.35rem; color:var(--gold);
+    max-width:32ch; margin-top:28px; line-height:1.4;
+  }
+
+  /* ---------- PROGRAMME CARDS ---------- */
+  .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  .card{
+    background:#fff; border:1px solid rgba(28,23,18,0.08); border-radius:3px; overflow:hidden;
+    display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:0 14px 32px rgba(28,23,18,0.1);}
+  .card-media{height:190px; position:relative; overflow:hidden;}
+  .card-media img{width:100%; height:100%; object-fit:cover;}
+  .card-body{padding:26px 26px 30px; display:flex; flex-direction:column; flex:1;}
+  .card-tag{font-family:'Fragment Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; color:var(--rust); text-transform:uppercase; margin-bottom:10px;}
+  .card h4{font-family:'Frank Ruhl Libre', serif; font-size:1.2rem; font-weight:600; margin-bottom:10px; line-height:1.2;}
+  .card p{color:var(--stone); font-size:0.92rem; line-height:1.6; flex:1;}
+
+  /* ---------- REGIONS ---------- */
+  .regions{background:var(--paper-dim); padding:96px 0;}
+  .region-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:0; border:1px solid rgba(28,23,18,0.1); border-radius:4px; overflow:hidden;}
+  .region{padding:36px 32px; border-right:1px solid rgba(28,23,18,0.1);}
+  .region:last-child{border-right:none;}
+  .region.primary{background:var(--ink); color:var(--paper);}
+  .region.primary h4{color:var(--gold);}
+  .region.primary p{color:#cfc6b3;}
+  .region-badge{font-family:'Fragment Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--rust); margin-bottom:12px; display:block;}
+  .region.primary .region-badge{color:var(--gold);}
+  .region h4{font-family:'Frank Ruhl Libre', serif; font-size:1.35rem; margin-bottom:12px;}
+  .region p{color:var(--stone); font-size:0.9rem; line-height:1.6;}
+
+  /* ---------- LEADERSHIP PHILOSOPHY (stamps) ---------- */
+  .philosophy{background:var(--indigo); position:relative; padding:76px 0 64px;}
+  .philosophy .section-head h2, .philosophy .section-head p{color:var(--paper);}
+  .philosophy .section-head p{color:#c9c0ac;}
+  .stamp-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+  }
+  .stamp{
+    border:1.5px dashed rgba(243,238,226,0.35); border-radius:50%;
+    aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:20px; color:var(--paper);
+    transform:rotate(var(--r, -2deg));
+    transition:transform .35s ease, border-color .35s ease;
+  }
+  .stamp:hover{transform:rotate(0deg) scale(1.03); border-color:var(--gold);}
+  .stamp .word{font-family:'Frank Ruhl Libre', serif; font-size:1.3rem; font-weight:600; color:var(--gold); line-height:1;}
+  .stamp .lbl{font-family:'Fragment Mono', monospace; font-size:0.62rem; letter-spacing:0.06em; margin-top:10px; color:#d7cdb8; line-height:1.4;}
+
+  /* ---------- CEO / LEADERSHIP ---------- */
+  .leader{padding:96px 0;}
+  .leader-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;}
+  .leader-photo{position:relative;}
+  .leader-photo img{width:100%; border-radius:4px; object-fit:cover;}
+  .leader-copy h2{font-size:clamp(1.8rem,3vw,2.3rem); margin-bottom:6px;}
+  .leader-role{font-family:'Fragment Mono', monospace; font-size:0.78rem; letter-spacing:0.06em; color:var(--rust); text-transform:uppercase; margin-bottom:22px;}
+  .leader-copy p{color:var(--stone); line-height:1.7; margin-bottom:16px; font-size:1rem;}
+  .leader-titles{
+    display:flex; flex-wrap:wrap; gap:10px; margin:24px 0 28px;
+  }
+  .leader-titles span{
+    font-family:'Fragment Mono', monospace; font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;
+    border:1px solid rgba(28,23,18,0.15); padding:7px 12px; border-radius:2px; color:var(--stone);
+  }
+  .quote-block{
+    background:var(--ink); color:var(--paper); padding:44px 40px; border-radius:4px; position:relative; margin-top:16px;
+  }
+  .quote-block::before{
+    content:"\201C"; font-family:'Frank Ruhl Libre', serif; font-size:4.5rem; color:var(--gold); position:absolute; top:2px; left:20px; line-height:1; opacity:0.7;
+  }
+  .quote-block blockquote{font-family:'Frank Ruhl Libre', serif; font-size:1.3rem; font-weight:500; line-height:1.4; margin:30px 0 16px; font-style:italic;}
+  .quote-block cite{font-style:normal; font-family:'Fragment Mono', monospace; font-size:0.76rem; color:var(--gold); letter-spacing:0.04em;}
+
+  /* ---------- CLOSING QUOTE BAND ---------- */
+  .cta-band{
+    background:var(--rust); color:#fff; padding:76px 0; text-align:center;
+  }
+  .cta-band .eyebrow{justify-content:center; color:rgba(255,255,255,0.85);}
+  .cta-band .eyebrow::before{background:rgba(255,255,255,0.85);}
+  .cta-band h2{color:#fff; font-size:clamp(1.5rem,2.8vw,2.1rem); max-width:26ch; margin:18px auto 20px; line-height:1.35; font-style:italic; font-weight:500;}
+  .cta-band p{color:rgba(255,255,255,0.85); max-width:52ch; margin:0 auto 30px; line-height:1.6;}
+  .cta-band .btn-primary{background:var(--ink); color:var(--gold);}
+  .cta-band .btn-primary:hover{background:#2a2015;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:var(--paper-dim); padding:64px 0 28px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
+  .footer-brand .brand{color:var(--paper); margin-bottom:14px;}
+  .footer-brand p{color:var(--stone); font-size:0.9rem; line-height:1.6; max-width:34ch;}
+  footer h5{font-family:'Fragment Mono', monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:16px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px; font-size:0.9rem; color:var(--paper-dim);}
+  footer li a:hover{color:var(--gold);}
+  .footer-bottom{
+    border-top:1px solid rgba(243,238,226,0.12); padding-top:24px; display:flex; justify-content:space-between;
+    font-size:0.76rem; color:var(--stone); flex-wrap:wrap; gap:10px; font-family:'Fragment Mono', monospace;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .navlinks{display:none;}
+    .burger{display:block;}
+    .pillars-inner{grid-template-columns:repeat(2, 1fr);}
+    .split{grid-template-columns:1fr; gap:32px;}
+    .split img{height:260px;}
+    .grid{grid-template-columns:1fr;}
+    .region-grid{grid-template-columns:1fr;}
+    .region{border-right:none; border-bottom:1px solid rgba(28,23,18,0.1);}
+    .stamp-grid{grid-template-columns:repeat(2, 1fr);}
+    .leader-grid{grid-template-columns:1fr; gap:36px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 520px){
+    .pillars-inner{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="brand">
+      <img class="brand-mark" src="images/shimu-logo.jpg" alt="Shimu emblem">
+      <span class="brand-text">Shimu<span>TANZANIA</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#mining">Mining</a>
+      <a href="#women">Women's Empowerment</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact" class="cta-link">Partner With Us</a>
+    </nav>
+    <button class="burger" aria-label="Open menu">MENU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo" src="images/shimu-logo.jpg" alt="Shimu emblem">
+    <div class="eyebrow">Connecting opportunities · Tanzania</div>
+    <h1>Mining for resources.<br>Investing in <em>women</em>.<br>Building the future.</h1>
+    <p class="lede">Shimu is a growing business platform connecting opportunity across mining, agriculture, investment and community empowerment — built on the belief that the wealth beneath the ground should help build the lives of the people above it.</p>
+    <div class="hero-actions">
+      <a href="#about" class="btn-primary">Our Vision</a>
+      <a href="#women" class="btn-ghost">Shimu Women NGO</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="images/mining-site-aerial.jpg" alt="A Shimu-affiliated mining site in Geita Region, Tanzania">
+    <span class="hero-photo-caption">Geita Region, Tanzania</span>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="pillars-inner">
+    <div class="pillar">
+      <h4>Mining Investment</h4>
+      <p>Connecting international investors with credible mining opportunities across Tanzania and beyond.</p>
+    </div>
+    <div class="pillar">
+      <h4>Agriculture</h4>
+      <p>Building the value chain from production through processing, packaging, distribution and markets.</p>
+    </div>
+    <div class="pillar">
+      <h4>Women's Empowerment</h4>
+      <p>Partnering with Shimu Women NGO to move women from economic dependence to ownership and leadership.</p>
+    </div>
+    <div class="pillar">
+      <h4>Global Partnerships</h4>
+      <p>Bringing governments, investors and communities together around transparent, mutually beneficial development.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" style="color:var(--rust);">A vision beyond business</div>
+        <h2 style="margin-top:12px;">A platform, not just a company</h2>
+      </div>
+      <p>Shimu was founded to build bridges between capital, natural resources, entrepreneurship and sustainable community development.</p>
+    </div>
+    <div class="split">
+      <div class="split-copy">
+        <p>Shimu is designed to connect opportunities across strategic sectors including mining, agriculture, investment and community empowerment. For its founder, business is not simply about generating profit — it is a vehicle for creating opportunity, connecting people and building long-term value.</p>
+        <p>The ambition is to establish Shimu as a trusted platform through which governments, investors, entrepreneurs, mining companies, agricultural enterprises and international partners can discover opportunities and develop mutually beneficial partnerships — across Africa, Europe, Asia, the Middle East and North America.</p>
+        <p class="tag-line">"Africa does not only need investors. Africa needs partners who are prepared to build with Africa."</p>
+      </div>
+      <img src="images/training-workshop.jpg" alt="Community and mining-sector training session at a Shimu-affiliated site">
+    </div>
+  </div>
+</section>
+
+<section class="mining-band" id="mining">
+  <div class="mining-media">
+    <img src="images/mining-site-aerial.jpg" alt="Small-scale mining site with women working the ground in Geita Region">
+  </div>
+  <div class="mining-copy">
+    <div class="eyebrow">Shimu Mining Corporation Ltd · SMC</div>
+    <h2>A responsible Tanzanian mining company, built around community</h2>
+    <p>Shimu Mining Corporation Ltd (SMC) is envisioned as a responsible Tanzanian mining company committed not only to mineral exploration and production, but also to creating lasting social and economic opportunities for the communities in which it operates.</p>
+    <p>A central part of SMC's community-development vision is its partnership with Shimu Women NGO, with particular emphasis on Geita Region, extending to women and communities in Singida and Mbeya.</p>
+    <p class="mining-quote">"The wealth beneath the ground should help build the lives of the people above the ground — especially women and families."</p>
+  </div>
+</section>
+
+<section class="section" id="women">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" style="color:var(--rust);">SMC × Shimu Women NGO</div>
+        <h2 style="margin-top:12px;">Building women, transforming communities</h2>
+      </div>
+      <p>Proposed programmes designed to help women move from economic dependence to ownership, entrepreneurship and leadership — beginning in Geita.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-media"><img src="images/womens-circle.jpg" alt="Women's group meeting in Geita Region"></div>
+        <div class="card-body">
+          <div class="card-tag">Business &amp; Skills</div>
+          <h4>Shimu Women Business Fund</h4>
+          <p>A flagship initiative combining capital with training, mentorship and market access — with priority areas spanning food processing, agriculture, tailoring, retail, catering and mining-supply businesses.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="images/panning-closeup.jpg" alt="Women panning for minerals at a Shimu-affiliated site"></div>
+        <div class="card-body">
+          <div class="card-tag">Mining Value Chain</div>
+          <h4>Women as participants, not just beneficiaries</h4>
+          <p>Supporting qualified women-owned businesses to take part in procurement, catering, transportation, accommodation, environmental services, administration and logistics.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="images/training-workshop.jpg" alt="Vocational training session at a Shimu-affiliated site"></div>
+        <div class="card-body">
+          <div class="card-tag">Education</div>
+          <h4>Shimu Women Leadership Academy</h4>
+          <p>A long-term flagship programme training women in leadership, entrepreneurship, financial management, governance, digital skills and opportunities within the mining sector.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="regions">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" style="color:var(--rust);">Where the programme works</div>
+        <h2 style="margin-top:12px;">Geita, Singida &amp; Mbeya</h2>
+      </div>
+      <p>Geita remains the principal centre, with selected programmes extending to Singida and Mbeya.</p>
+    </div>
+    <div class="region-grid">
+      <div class="region primary">
+        <span class="region-badge">Primary centre</span>
+        <h4>Geita</h4>
+        <p>Entrepreneurship and business development, small-business grants and revolving funds, mining-related skills training, agriculture and livestock projects, financial literacy, mentorship and digital skills.</p>
+      </div>
+      <div class="region">
+        <span class="region-badge">Expansion region</span>
+        <h4>Singida</h4>
+        <p>Agriculture and agribusiness, women-owned small businesses, savings and financial literacy, vocational training, cooperative development and market access.</p>
+      </div>
+      <div class="region">
+        <span class="region-badge">Expansion region</span>
+        <h4>Mbeya</h4>
+        <p>Agriculture and food processing, SMEs, women's cooperatives, mining-related businesses, vocational and technical training, financial inclusion and youth entrepreneurship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy" id="leadership">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" style="color:var(--gold);">Leadership philosophy</div>
+        <h2 style="margin-top:12px;">Vision. Connection. Purpose. Impact.</h2>
+      </div>
+      <p>The principles that guide how Shimu approaches business, partnership and community.</p>
+    </div>
+    <div class="stamp-grid">
+      <div class="stamp" style="--r:-3deg;">
+        <div class="word">Vision</div>
+        <div class="lbl">Seeing opportunities where others may see only challenges</div>
+      </div>
+      <div class="stamp" style="--r:2deg;">
+        <div class="word">Connection</div>
+        <div class="lbl">Bringing the right people, institutions &amp; resources together</div>
+      </div>
+      <div class="stamp" style="--r:-2deg;">
+        <div class="word">Purpose</div>
+        <div class="lbl">Ensuring business success contributes to a larger mission</div>
+      </div>
+      <div class="stamp" style="--r:3deg;">
+        <div class="word">Impact</div>
+        <div class="lbl">Creating measurable economic &amp; social value for communities</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="leader">
+  <div class="wrap">
+    <div class="leader-grid">
+      <div class="leader-photo">
+        <img src="images/ceo-mwasha.jpg" alt="Shilekirwamuu Israel Mwasha, Founder and CEO of Shimu">
+      </div>
+      <div class="leader-copy">
+        <div class="eyebrow" style="color:var(--rust);">Founder &amp; CEO</div>
+        <h2 style="margin-top:12px;">Shilekirwamuu Israel Mwasha</h2>
+        <div class="leader-role">Leading with vision. Empowering with purpose.</div>
+        <p>Shilekirwamuu Israel Mwasha is an entrepreneur, business leader and international investment facilitator whose mission is to build bridges between capital, natural resources, entrepreneurship and sustainable community development.</p>
+        <p>A major part of his entrepreneurial mission is facilitating connections between investors and mining opportunities across countries — bringing together international investors, mining entrepreneurs, governments, local business partners, technical professionals and community stakeholders around transparent, mutually beneficial relationships.</p>
+        <p>He is also deeply engaged in agriculture as a foundation for economic transformation, and in developing relationships with governments, ministries and development institutions on the belief that national policy direction and responsible private investment work best as partners, not in isolation.</p>
+        <div class="leader-titles">
+          <span>Entrepreneur</span>
+          <span>Investment Facilitator</span>
+          <span>Agricultural Business Leader</span>
+          <span>Global Partnership Builder</span>
+        </div>
+        <div class="quote-block">
+          <blockquote>To connect global capital with credible opportunities, develop sustainable enterprises, empower communities and build strategic partnerships that create lasting economic value.</blockquote>
+          <cite>— The Mission of Shimu</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">A long-term partnership</div>
+    <h2>"When women rise, families rise. When families rise, communities rise. When communities rise, Tanzania rises."</h2>
+    <p>Shimu welcomes strategic relationships with governments, investors, corporations, development institutions and entrepreneurs who share a commitment to responsible investment and sustainable development.</p>
+    <a href="mailto:info@shimu.co.tz" class="btn-primary">Get in touch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img class="brand-mark" src="images/shimu-logo.jpg" alt="Shimu emblem">
+          <span class="brand-text">Shimu</span>
+        </div>
+        <p>Connecting opportunities, mobilising investment and empowering communities across mining, agriculture and women's economic development in Tanzania.</p>
+      </div>
+      <div>
+        <h5>About</h5>
+        <ul>
+          <li><a href="#about">Our Vision</a></li>
+          <li><a href="#mining">Shimu Mining Corporation</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Women's Empowerment</h5>
+        <ul>
+          <li><a href="#women">Shimu Women NGO</a></li>
+          <li><a href="#women">Business Fund</a></li>
+          <li><a href="#women">Leadership Academy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@shimu.co.tz">info@shimu.co.tz</a></li>
+          <li><a href="#">Geita Region, Tanzania</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SHIMU</span>
+      <span>MINING · AGRICULTURE · INVESTMENT · WOMEN'S EMPOWERMENT</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

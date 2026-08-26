@@ -9,6 +9,7 @@
   --gold:#c4922f;
   --indigo:#24425c;
   --rust:#a8462c;
+  --forest:#2c4a3a;
   --stone:#7a7266;
   --paper-dim:#e9e2d1;
 }
@@ -94,7 +95,10 @@ header{
   padding:100px 0 0; overflow:hidden;
 }
 .hero-inner{position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:20px 32px 80px;}
-.hero-logo{width:78px; height:78px; object-fit:cover; border-radius:50%; margin-bottom:26px; border:1px solid rgba(196,146,47,0.5); filter:drop-shadow(0 8px 24px rgba(196,146,47,0.2));}
+.hero-logo{
+  width:330px; max-width:75%; height:auto; margin-bottom:32px;
+  filter:drop-shadow(0 8px 24px rgba(196,146,47,0.2));
+}
 .hero h1{
   font-size:clamp(2.4rem, 5.2vw, 4.2rem);
   max-width:16ch; margin:18px 0 24px;
@@ -183,6 +187,14 @@ header{
 .region h4{font-family:'Frank Ruhl Libre', serif; font-size:1.35rem; margin-bottom:12px;}
 .region p{color:var(--stone); font-size:0.9rem; line-height:1.6;}
 
+/* ---------- TASPO NGO BAND ---------- */
+.taspo-band{background:var(--forest); color:var(--paper); padding:96px 0;}
+.taspo-copy{max-width:760px;}
+.taspo-band .eyebrow{margin-bottom:18px;}
+.taspo-band h2{color:#faf6ec; font-size:clamp(1.8rem, 3vw, 2.4rem); max-width:22ch; margin-bottom:22px;}
+.taspo-band p{color:#cfe0d3; line-height:1.75; max-width:66ch; margin-bottom:20px; font-size:1.02rem;}
+.taspo-band p:last-of-type{margin-bottom:32px;}
+
 /* ---------- LEADERSHIP PHILOSOPHY (stamps) ---------- */
 .philosophy{background:var(--indigo); position:relative; padding:76px 0 64px;}
 .philosophy .section-head h2, .philosophy .section-head p{color:var(--paper);}
@@ -241,6 +253,19 @@ header{
 .cta-band .btn-primary{background:var(--ink); color:var(--gold);}
 .cta-band .btn-primary:hover{background:#2a2015;}
 
+/* ---------- TASPO PAGE (focus areas + forest CTA) ---------- */
+.taspo-focus{background:var(--paper-dim); padding:96px 0;}
+.taspo-focus-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:32px 40px;}
+.taspo-focus-item{border-left:2px solid var(--forest); padding:6px 0 6px 20px;}
+.taspo-focus-item h4{font-family:'Frank Ruhl Libre', serif; font-size:1.2rem; font-weight:600; margin-bottom:10px; color:var(--ink);}
+.taspo-focus-item p{color:var(--stone); font-size:0.95rem; line-height:1.6;}
+.cta-band.forest{background:var(--forest);}
+.taspo-dark-band{background:var(--ink); color:var(--paper); padding:92px 0;}
+.taspo-dark-band .eyebrow{margin-bottom:18px;}
+.taspo-dark-band h2{color:#faf6ec; font-size:clamp(1.8rem, 3vw, 2.4rem); max-width:26ch; margin-bottom:20px;}
+.taspo-dark-band p{color:#cfc6b3; line-height:1.75; max-width:68ch; margin-bottom:16px; font-size:1.02rem;}
+.taspo-dark-band p:last-child{margin-bottom:0;}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--ink); color:var(--paper-dim); padding:64px 0 28px;}
 .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
@@ -268,6 +293,7 @@ footer li a:hover{color:var(--gold);}
   .stamp-grid{grid-template-columns:repeat(2, 1fr);}
   .leader-grid{grid-template-columns:1fr; gap:36px;}
   .footer-grid{grid-template-columns:1fr 1fr;}
+  .taspo-focus-grid{grid-template-columns:1fr;}
 }
 @media (max-width: 520px){
   .pillars-inner{grid-template-columns:1fr;}

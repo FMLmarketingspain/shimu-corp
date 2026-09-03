@@ -11,6 +11,7 @@
   --rust:#a8462c;
   --forest:#2c4a3a;
   --sage:#dbe6d7;
+  --sky:#dbe6ef;
   --stone:#7a7266;
   --paper-dim:#e9e2d1;
 }
@@ -246,6 +247,11 @@ header{
 .bio-more li{margin-bottom:10px;}
 .bio-more li strong{color:var(--ink);}
 .leader.sage .bio-more .quote-block{margin-top:22px;}
+.leader.sky{background:var(--sky);}
+.leader.sky .eyebrow{color:var(--indigo);}
+.leader.sky .leader-role{color:var(--indigo);}
+.leader.sky .read-more-toggle{border-bottom-color:rgba(28,23,18,0.3);}
+.leader.sky .read-more-toggle:hover{border-color:var(--indigo); color:var(--indigo);}
 .leader.sage .read-more-toggle{border-bottom-color:rgba(28,23,18,0.3);}
 .leader.rust{background:var(--rust); color:#fff;}
 .leader.rust .eyebrow{color:rgba(255,255,255,0.85);}

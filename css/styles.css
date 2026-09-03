@@ -244,6 +244,14 @@ header{
 .bio-more h4{font-family:'Frank Ruhl Libre', serif; font-size:1.15rem; font-weight:600; margin:26px 0 10px; color:var(--ink);}
 .leader.sage .bio-more .quote-block{margin-top:22px;}
 .leader.sage .read-more-toggle{border-bottom-color:rgba(28,23,18,0.3);}
+.leader.rust{background:var(--rust); color:#fff;}
+.leader.rust .eyebrow{color:rgba(255,255,255,0.85);}
+.leader.rust .eyebrow::before{background:rgba(255,255,255,0.85);}
+.leader.rust .leader-copy h2{color:#fff;}
+.leader.rust .leader-role{color:#fff;}
+.leader.rust .leader-copy p{color:rgba(255,255,255,0.9);}
+.leader.rust .bio-more h4{color:#fff;}
+.leader.rust .bio-more .quote-block{margin-top:22px; background:var(--ink);}
 .leader.sage .read-more-toggle:hover{border-color:var(--forest); color:var(--forest);}
 .read-more-toggle{
   display:inline-block; margin-top:4px;

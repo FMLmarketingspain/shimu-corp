@@ -10,6 +10,7 @@
   --indigo:#24425c;
   --rust:#a8462c;
   --forest:#2c4a3a;
+  --sage:#dbe6d7;
   --stone:#7a7266;
   --paper-dim:#e9e2d1;
 }
@@ -237,6 +238,21 @@ header{
 .leader.indigo .leader-copy h2{color:#faf6ec;}
 .leader.indigo .leader-role{color:var(--gold);}
 .leader.indigo .leader-copy p{color:#cdd7e2;}
+.leader.sage{background:var(--sage);}
+.leader.sage .eyebrow{color:var(--forest);}
+.leader.sage .leader-role{color:var(--forest);}
+.bio-more h4{font-family:'Frank Ruhl Libre', serif; font-size:1.15rem; font-weight:600; margin:26px 0 10px; color:var(--ink);}
+.leader.sage .bio-more .quote-block{margin-top:22px;}
+.leader.sage .read-more-toggle{border-bottom-color:rgba(28,23,18,0.3);}
+.leader.sage .read-more-toggle:hover{border-color:var(--forest); color:var(--forest);}
+.read-more-toggle{
+  display:inline-block; margin-top:4px;
+  background:none; border:none; padding:0;
+  font-family:'Karla', sans-serif; font-size:0.95rem; color:inherit;
+  border-bottom:1px solid rgba(243,238,226,0.4);
+  cursor:pointer; transition:border-color .2s, color .2s;
+}
+.read-more-toggle:hover{border-color:var(--gold); color:var(--gold);}
 .leader-titles{
   display:flex; flex-wrap:wrap; gap:10px; margin:24px 0 28px;
 }

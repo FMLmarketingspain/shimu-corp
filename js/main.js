@@ -24,4 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
   nav.querySelectorAll('.navlinks a').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
+
+  // Read more / read less toggles — each button reveals the hidden
+  // block immediately before it (a "bio-more" div, in current usage).
+  document.querySelectorAll('.read-more-toggle').forEach((btn) => {
+    const target = btn.previousElementSibling;
+    if (!target) return;
+    btn.addEventListener('click', () => {
+      const nowHidden = !target.hasAttribute('hidden');
+      target.toggleAttribute('hidden');
+      btn.textContent = nowHidden ? 'Read more' : 'Read less';
+      btn.setAttribute('aria-expanded', String(!nowHidden));
+    });
+  });
 });

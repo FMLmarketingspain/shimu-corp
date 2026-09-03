@@ -242,6 +242,9 @@ header{
 .leader.sage .eyebrow{color:var(--forest);}
 .leader.sage .leader-role{color:var(--forest);}
 .bio-more h4{font-family:'Frank Ruhl Libre', serif; font-size:1.15rem; font-weight:600; margin:26px 0 10px; color:var(--ink);}
+.bio-more ul{margin:0 0 20px; padding-left:22px; color:var(--stone); line-height:1.7;}
+.bio-more li{margin-bottom:10px;}
+.bio-more li strong{color:var(--ink);}
 .leader.sage .bio-more .quote-block{margin-top:22px;}
 .leader.sage .read-more-toggle{border-bottom-color:rgba(28,23,18,0.3);}
 .leader.rust{background:var(--rust); color:#fff;}
@@ -294,6 +297,7 @@ header{
 .taspo-focus-item{border-left:2px solid var(--forest); padding:6px 0 6px 20px;}
 .taspo-focus-item h4{font-family:'Frank Ruhl Libre', serif; font-size:1.2rem; font-weight:600; margin-bottom:10px; color:var(--ink);}
 .taspo-focus-item p{color:var(--stone); font-size:0.95rem; line-height:1.6;}
+.taspo-project-photo{width:100%; height:420px; object-fit:cover; border-radius:4px; margin-bottom:40px;}
 .cta-band.forest{background:var(--forest);}
 .taspo-dark-band{background:var(--ink); color:var(--paper); padding:92px 0;}
 .taspo-dark-band .eyebrow{margin-bottom:18px;}

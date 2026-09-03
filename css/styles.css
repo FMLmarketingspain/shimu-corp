@@ -227,11 +227,16 @@ header{
 /* ---------- CEO / LEADERSHIP ---------- */
 .leader{padding:96px 0;}
 .leader-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;}
+.leader-grid.reverse{grid-template-columns:1.15fr 0.85fr; align-items:center;}
 .leader-photo{position:relative;}
 .leader-photo img{width:100%; border-radius:4px; object-fit:cover;}
 .leader-copy h2{font-size:clamp(1.8rem,3vw,2.3rem); margin-top:12px; margin-bottom:6px;}
 .leader-role{font-family:'Fragment Mono', monospace; font-size:0.78rem; letter-spacing:0.06em; color:var(--rust); text-transform:uppercase; margin-bottom:22px;}
 .leader-copy p{color:var(--stone); line-height:1.7; margin-bottom:16px; font-size:1rem;}
+.leader.indigo{background:var(--indigo); color:var(--paper);}
+.leader.indigo .leader-copy h2{color:#faf6ec;}
+.leader.indigo .leader-role{color:var(--gold);}
+.leader.indigo .leader-copy p{color:#cdd7e2;}
 .leader-titles{
   display:flex; flex-wrap:wrap; gap:10px; margin:24px 0 28px;
 }

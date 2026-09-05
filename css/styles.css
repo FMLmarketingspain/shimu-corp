@@ -242,8 +242,8 @@ header{
 
 /* ---------- CEO / LEADERSHIP ---------- */
 .leader{padding:96px 0;}
-.leader-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;}
-.leader-grid.reverse{grid-template-columns:1.15fr 0.85fr; align-items:center;}
+.leader-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;}
+.leader-grid.reverse{grid-template-columns:1.15fr 0.85fr; align-items:start;}
 .leader-photo{position:relative;}
 .leader-photo img{width:100%; border-radius:4px; object-fit:cover;}
 .leader-copy h2{font-size:clamp(1.8rem,3vw,2.3rem); margin-top:12px; margin-bottom:6px;}

@@ -58,6 +58,7 @@ h1,h2,h3{font-family:'Frank Ruhl Libre', serif; font-weight:600; line-height:1.0
   transition:border-color .2s, color .2s;
 }
 .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+.btn-ghost.on-paper{color:var(--rust); border-bottom-color:rgba(168,70,44,0.35);}
 
 .section{padding:92px 0;}
 .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px; flex-wrap:wrap;}
@@ -354,6 +355,28 @@ header{
 .blog-post li{margin-bottom:8px;}
 .blog-post a{color:var(--rust); text-decoration:underline; text-underline-offset:2px;}
 .blog-post a:hover{color:var(--gold);}
+
+/* ---------- LICENCES ---------- */
+.licence-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:28px;}
+.licence-card{
+  display:block; color:inherit; text-decoration:none;
+  background:#fff; border:1px solid rgba(28,23,18,0.08); border-radius:3px; overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.licence-card:hover{transform:translateY(-4px); box-shadow:0 14px 32px rgba(28,23,18,0.1);}
+.licence-card img{width:100%; height:240px; object-fit:contain; background:var(--paper-dim); display:block; padding:14px;}
+.licence-card .licence-placeholder{
+  width:100%; height:240px; display:flex; align-items:center; justify-content:center;
+  background:var(--ink); color:var(--gold); font-family:'Fragment Mono', monospace;
+  font-size:1.5rem; letter-spacing:0.12em;
+}
+.licence-card-body{padding:22px 24px 26px;}
+.licence-card h3{font-family:'Frank Ruhl Libre', serif; font-size:1.15rem; font-weight:600; margin-bottom:8px; color:var(--ink);}
+.licence-card p{color:var(--stone); font-size:0.9rem; line-height:1.55; margin-bottom:12px;}
+.licence-card .read-more-label{
+  display:inline-block; font-family:'Fragment Mono', monospace;
+  font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--rust);
+}
 .taspo-dark-band{background:var(--ink); color:var(--paper); padding:92px 0;}
 .taspo-dark-band .eyebrow{margin-bottom:18px;}
 .taspo-dark-band h2{color:#faf6ec; font-size:clamp(1.8rem, 3vw, 2.4rem); max-width:26ch; margin-bottom:20px;}

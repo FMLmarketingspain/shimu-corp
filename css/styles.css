@@ -385,7 +385,7 @@ header{
 
 /* ---------- DONATE ---------- */
 .donate-highlight{
-  background:var(--forest); color:#fff; text-align:center;
+  background:#75473b; color:#fff; text-align:center;
   border-radius:4px; padding:36px 32px; margin:8px 0 4px;
 }
 .donate-highlight .amount{

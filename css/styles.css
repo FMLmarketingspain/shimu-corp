@@ -414,10 +414,12 @@ header{
 }
 .donate-gate-fields{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:22px;}
 .donate-gate label{display:flex; flex-direction:column; gap:6px;}
+.donate-gate label.donate-gate-wide{grid-column:1 / -1;}
 .donate-gate label span{
   font-family:'Fragment Mono', monospace; font-size:0.68rem; letter-spacing:0.08em;
   text-transform:uppercase; color:var(--rust);
 }
+.donate-gate label span em{font-style:normal; color:var(--stone); text-transform:none; letter-spacing:0;}
 .donate-gate input{
   font:inherit; padding:11px 12px; border:1px solid rgba(28,23,18,0.2);
   border-radius:2px; background:var(--paper); color:var(--ink);

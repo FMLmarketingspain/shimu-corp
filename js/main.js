@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(KEY, JSON.stringify({
           name: data.get('name'),
           email: data.get('email'),
+          company: data.get('company'),
           at: new Date().toISOString(),
         }));
       } catch (e) { /* ignore */ }

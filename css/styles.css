@@ -408,6 +408,21 @@ header{
 .donate-note{
   color:var(--stone); font-size:0.92rem; line-height:1.7; max-width:60ch; margin:0 auto 24px; text-align:center;
 }
+.bank-card{
+  background:#fff; border:1px solid rgba(28,23,18,0.1); border-left:3px solid var(--forest);
+  border-radius:3px; padding:30px 32px; max-width:56ch;
+}
+.bank-card dl{display:grid; grid-template-columns:auto 1fr; gap:12px 24px; margin:0;}
+.bank-card dt{
+  font-family:'Fragment Mono', monospace; font-size:0.68rem; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--rust); align-self:start; padding-top:3px;
+}
+.bank-card dd{margin:0; color:var(--ink); font-size:1rem; line-height:1.5;}
+.bank-card dd.mono{font-family:'Fragment Mono', monospace; letter-spacing:0.04em;}
+@media (max-width: 520px){
+  .bank-card dl{grid-template-columns:1fr; gap:4px 0;}
+  .bank-card dd{margin-bottom:14px;}
+}
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--ink); color:var(--paper-dim); padding:64px 0 28px;}

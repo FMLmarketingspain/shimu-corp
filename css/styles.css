@@ -392,7 +392,31 @@ header{
   font-family:'Frank Ruhl Libre', serif; font-size:clamp(1.6rem, 3.4vw, 2.3rem);
   font-weight:700; color:var(--gold); line-height:1.2;
 }
-.donate-highlight p{color:rgba(255,255,255,0.9); margin:10px auto 0; max-width:44ch; line-height:1.6;}
+.donate-highlight p{color:rgba(255,255,255,0.9); margin:12px auto 0; max-width:48ch; line-height:1.6;}
+.donate-highlight a{color:#fff; text-decoration:underline; text-underline-offset:2px;}
+.swap-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:28px;}
+.swap-card{border-radius:4px; padding:26px 28px 28px;}
+.swap-card--before{background:var(--paper-dim); border:1px solid rgba(28,23,18,0.1);}
+.swap-card--after{background:var(--forest); color:#fff;}
+.swap-label{
+  font-family:'Fragment Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+  text-transform:uppercase; margin-bottom:12px;
+}
+.swap-card--before .swap-label{color:var(--rust);}
+.swap-card--after .swap-label{color:var(--gold);}
+.swap-card ul{list-style:none; margin:0; padding:0;}
+.swap-card li{
+  position:relative; padding:11px 0 11px 26px; line-height:1.5; font-size:0.98rem;
+  border-top:1px solid rgba(28,23,18,0.08);
+}
+.swap-card li:first-child{border-top:none;}
+.swap-card--after li{border-top-color:rgba(255,255,255,0.16);}
+.swap-card li::before{position:absolute; left:0; top:11px; font-size:0.85rem;}
+.swap-card--before li::before{content:"\00d7"; color:var(--rust);}
+.swap-card--after li::before{content:"\2713"; color:var(--gold);}
+@media (max-width: 640px){
+  .swap-grid{grid-template-columns:1fr; gap:16px;}
+}
 .donate-tiers{
   display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-top:8px;
 }

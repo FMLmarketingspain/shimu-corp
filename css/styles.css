@@ -420,6 +420,7 @@ header{
   text-transform:uppercase; color:var(--rust);
 }
 .donate-gate label span em{font-style:normal; color:var(--stone); text-transform:none; letter-spacing:0;}
+.donate-gate-honey{position:absolute; left:-9999px; width:1px; height:1px; opacity:0;}
 .donate-gate input{
   font:inherit; padding:11px 12px; border:1px solid rgba(28,23,18,0.2);
   border-radius:2px; background:var(--paper); color:var(--ink);

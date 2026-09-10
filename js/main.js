@@ -1,12 +1,18 @@
 // Mobile nav toggle.
 document.addEventListener('DOMContentLoaded', () => {
   // Donate page: reveal the bank details once a short name/email form
-  // is filled in. The submission isn't sent anywhere (static site) —
-  // it's kept in localStorage so a returning visitor skips the form.
+  // is filled in. The submission is sent to FormSubmit.co (the form's
+  // own `action`), which forwards it to support@shimucorp.com. The
+  // reveal is fail-open — if that POST fails, the donor still sees the
+  // details. A localStorage flag lets a returning visitor skip the form.
   const gate = document.getElementById('donate-gate');
   const reveal = document.getElementById('bank-reveal');
   if (gate && reveal) {
     const KEY = 'taspo-donate-gate';
+    // Once activated, FormSubmit issues a random alias you can swap in
+    // here (https://formsubmit.co/ajax/<alias>) to keep the address out
+    // of the page source.
+    const ENDPOINT = 'https://formsubmit.co/ajax/support@shimucorp.com';
     const showDetails = () => {
       reveal.hidden = false;
       gate.hidden = true;
@@ -18,6 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
       if (!gate.reportValidity()) return;
       const data = new FormData(gate);
+      if (data.get('_honey')) return; // spam bot filled the hidden field
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          company: data.get('company') || '(not given)',
+          _subject: 'New donor — Whiteboards for All',
+          _template: 'table',
+        }),
+      }).catch(() => { /* fail open — donor still sees the details */ });
       try {
         localStorage.setItem(KEY, JSON.stringify({
           name: data.get('name'),

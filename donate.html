@@ -139,23 +139,40 @@
         <div class="eyebrow" style="color:var(--forest);">Give by Bank Transfer</div>
         <h2>How to donate</h2>
       </div>
-      <p>Donations go directly to TASPO's bank account in Tanzania. Please use the reference below so we can allocate your gift to the Whiteboards for All project.</p>
+      <p>Donations go directly to TASPO's bank account in Tanzania. Enter your name and email to view the account details — we'll use them only to confirm your donation and send you an update on the classrooms it reaches.</p>
     </div>
-    <div class="bank-card">
-      <dl>
-        <dt>Account name</dt>
-        <dd>Tanzania Student Plan Organization</dd>
-        <dt>Bank</dt>
-        <dd>National Bank of Commerce (NBC Bank)</dd>
-        <dt>Bank address</dt>
-        <dd>Bagamoyo Rd, Tegeta Area, 11000, Dar es Salaam, Tanzania</dd>
-        <dt>Account number</dt>
-        <dd class="mono">086173000112</dd>
-        <dt>Reference</dt>
-        <dd class="mono">Whiteboard donation</dd>
-      </dl>
+
+    <form class="donate-gate" id="donate-gate" novalidate>
+      <div class="donate-gate-fields">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+      </div>
+      <button type="submit" class="btn-primary">Show bank details →</button>
+    </form>
+
+    <div class="bank-reveal" id="bank-reveal" hidden>
+      <div class="bank-card">
+        <dl>
+          <dt>Account name</dt>
+          <dd>Tanzania Student Plan Organization</dd>
+          <dt>Bank</dt>
+          <dd>National Bank of Commerce (NBC Bank)</dd>
+          <dt>Bank address</dt>
+          <dd>Bagamoyo Rd, Tegeta Area, 11000, Dar es Salaam, Tanzania</dd>
+          <dt>Account number</dt>
+          <dd class="mono">086173000112</dd>
+          <dt>Reference</dt>
+          <dd class="mono">Whiteboard donation</dd>
+        </dl>
+      </div>
+      <p class="donate-note" style="margin-top:24px; text-align:left; max-width:56ch;">Once your transfer is on its way, email <a href="mailto:support@shimucorp.com?subject=Whiteboard%20donation" style="color:var(--rust);">support@shimucorp.com</a> so we can confirm receipt and send you an update on the classrooms it reaches.</p>
     </div>
-    <p class="donate-note" style="margin-top:24px; text-align:left; max-width:56ch;">Once your transfer is on its way, email <a href="mailto:support@shimucorp.com?subject=Whiteboard%20donation" style="color:var(--rust);">support@shimucorp.com</a> so we can confirm receipt and send you an update on the classrooms it reaches.</p>
   </div>
 </section>
 

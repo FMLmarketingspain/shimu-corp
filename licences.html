@@ -51,33 +51,45 @@
 <section class="section">
   <div class="wrap">
     <div class="licence-grid">
-      <a class="licence-card" href="images/licence-ngo-registration.jpg" target="_blank" rel="noopener">
-        <img src="images/licence-ngo-registration.jpg" alt="NGO Certificate of Registration">
+      <button type="button" class="licence-card" data-licence-src="images/licence-ngo-registration.jpg" data-licence-type="image" data-licence-title="NGO Certificate of Registration">
+        <img src="images/licence-ngo-registration.jpg" alt="NGO Certificate of Registration" oncontextmenu="return false" draggable="false">
         <div class="licence-card-body">
           <h3>NGO Certificate of Registration</h3>
           <p>Registration No. OONGO/R/1910, issued 27 May 2021 under the Non-Governmental Organisations Act, 2002. Valid until 26 May 2031.</p>
           <span class="read-more-label">View Certificate ↗</span>
         </div>
-      </a>
-      <a class="licence-card" href="images/licence-ministry-letter.jpg" target="_blank" rel="noopener">
-        <img src="images/licence-ministry-letter.jpg" alt="Ministry of Community Development, Gender and Children registration letter">
+      </button>
+      <button type="button" class="licence-card" data-licence-src="images/licence-ministry-letter.jpg" data-licence-type="image" data-licence-title="Ministry Registration Letter">
+        <img src="images/licence-ministry-letter.jpg" alt="Ministry of Community Development, Gender and Children registration letter" oncontextmenu="return false" draggable="false">
         <div class="licence-card-body">
           <h3>Ministry Registration Letter</h3>
           <p>Confirmation letter from the Ministry of Community Development, Gender and Children, Ref No. OONGO/R/1910, dated 27 May 2021.</p>
           <span class="read-more-label">View Letter ↗</span>
         </div>
-      </a>
-      <a class="licence-card" href="images/licence-nssf-registration.pdf" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="licence-card" data-licence-src="images/licence-nssf-registration.pdf" data-licence-type="pdf" data-licence-title="NSSF Certificate of Registration">
         <div class="licence-placeholder">PDF</div>
         <div class="licence-card-body">
           <h3>NSSF Certificate of Registration</h3>
           <p>Registered with the National Social Security Fund as an employer, Registration No. 1033809, dated 20 January 2022.</p>
           <span class="read-more-label">View PDF ↗</span>
         </div>
-      </a>
+      </button>
     </div>
   </div>
 </section>
+
+<div class="licence-lightbox" id="licence-lightbox" hidden>
+  <div class="licence-lightbox-backdrop" data-licence-close></div>
+  <div class="licence-lightbox-panel">
+    <div class="licence-lightbox-head">
+      <h3 id="licence-lightbox-title"></h3>
+      <button type="button" class="licence-lightbox-close" data-licence-close aria-label="Close">✕</button>
+    </div>
+    <div class="licence-lightbox-body" id="licence-lightbox-body"></div>
+    <p class="licence-lightbox-note">For verification only — please contact <a href="mailto:support@shimucorp.com">support@shimucorp.com</a> for an official copy.</p>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">

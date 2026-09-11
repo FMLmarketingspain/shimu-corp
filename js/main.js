@@ -49,6 +49,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Licences page: open certificates in an in-page lightbox instead of
+  // linking to the raw file, and block right-click/drag on the images.
+  // This deters casual copying — it can't stop a screenshot, and the
+  // PDF's own viewer toolbar (Chrome/Edge/Firefox built-in) is outside
+  // the page's control.
+  const lightbox = document.getElementById('licence-lightbox');
+  if (lightbox) {
+    const body = document.getElementById('licence-lightbox-body');
+    const title = document.getElementById('licence-lightbox-title');
+    const openLightbox = (src, type, label) => {
+      title.textContent = label || '';
+      body.innerHTML = '';
+      if (type === 'pdf') {
+        const wrap = document.createElement('div');
+        wrap.className = 'licence-lightbox-pdf';
+        const frame = document.createElement('iframe');
+        frame.src = src + '#toolbar=0&navpanes=0';
+        frame.title = label || 'Document preview';
+        const fallback = document.createElement('p');
+        fallback.className = 'licence-lightbox-fallback';
+        fallback.innerHTML = 'Not showing? <a href="' + src + '" target="_blank" rel="noopener">Open the PDF in a new tab ↗</a>';
+        wrap.appendChild(frame);
+        wrap.appendChild(fallback);
+        body.appendChild(wrap);
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = label || '';
+        img.oncontextmenu = () => false;
+        img.draggable = false;
+        body.appendChild(img);
+      }
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLightbox = () => {
+      lightbox.hidden = true;
+      body.innerHTML = '';
+      document.body.style.overflow = '';
+    };
+    document.querySelectorAll('[data-licence-src]').forEach((card) => {
+      card.addEventListener('click', () => {
+        openLightbox(
+          card.getAttribute('data-licence-src'),
+          card.getAttribute('data-licence-type'),
+          card.getAttribute('data-licence-title')
+        );
+      });
+    });
+    lightbox.querySelectorAll('[data-licence-close]').forEach((el) => {
+      el.addEventListener('click', closeLightbox);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    });
+  }
+
   const nav = document.querySelector('.nav');
   const burger = document.querySelector('.burger');
   if (!nav || !burger) return;

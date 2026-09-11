@@ -359,12 +359,16 @@ header{
 /* ---------- LICENCES ---------- */
 .licence-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:28px;}
 .licence-card{
-  display:block; color:inherit; text-decoration:none;
+  display:block; width:100%; margin:0; color:inherit; text-decoration:none;
   background:#fff; border:1px solid rgba(28,23,18,0.08); border-radius:3px; overflow:hidden;
+  font:inherit; text-align:left; cursor:pointer;
   transition:transform .25s ease, box-shadow .25s ease;
 }
 .licence-card:hover{transform:translateY(-4px); box-shadow:0 14px 32px rgba(28,23,18,0.1);}
-.licence-card img{width:100%; height:240px; object-fit:contain; background:var(--paper-dim); display:block; padding:14px;}
+.licence-card img{
+  width:100%; height:240px; object-fit:contain; background:var(--paper-dim); display:block; padding:14px;
+  -webkit-user-drag:none; user-select:none; pointer-events:none;
+}
 .licence-card .licence-placeholder{
   width:100%; height:240px; display:flex; align-items:center; justify-content:center;
   background:var(--ink); color:var(--gold); font-family:'Fragment Mono', monospace;
@@ -377,6 +381,35 @@ header{
   display:inline-block; font-family:'Fragment Mono', monospace;
   font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--rust);
 }
+
+.licence-lightbox{position:fixed; inset:0; z-index:200; align-items:center; justify-content:center; padding:28px;}
+.licence-lightbox[hidden]{display:none;}
+.licence-lightbox:not([hidden]){display:flex;}
+.licence-lightbox-backdrop{position:absolute; inset:0; background:rgba(28,23,18,0.82);}
+.licence-lightbox-panel{
+  position:relative; background:#fff; border-radius:4px; max-width:min(860px, 100%); max-height:100%;
+  display:flex; flex-direction:column; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,0.4);
+}
+.licence-lightbox-head{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:18px 22px; border-bottom:1px solid rgba(28,23,18,0.08);
+}
+.licence-lightbox-head h3{font-family:'Frank Ruhl Libre', serif; font-size:1.1rem; font-weight:600; color:var(--ink);}
+.licence-lightbox-close{
+  background:none; border:none; font-size:1.2rem; line-height:1; color:var(--stone); cursor:pointer; padding:4px 6px;
+}
+.licence-lightbox-close:hover{color:var(--rust);}
+.licence-lightbox-body{overflow:auto; background:var(--paper-dim); display:flex; align-items:center; justify-content:center; min-height:200px;}
+.licence-lightbox-body img{
+  max-width:100%; max-height:70vh; display:block;
+  -webkit-user-drag:none; user-select:none; pointer-events:none;
+}
+.licence-lightbox-pdf{display:flex; flex-direction:column; align-items:center; gap:10px;}
+.licence-lightbox-body iframe{width:min(820px, 90vw); height:65vh; border:none; background:#fff;}
+.licence-lightbox-fallback{font-size:0.82rem; color:var(--stone);}
+.licence-lightbox-fallback a{color:var(--rust);}
+.licence-lightbox-note{padding:14px 22px 20px; font-size:0.82rem; color:var(--stone); border-top:1px solid rgba(28,23,18,0.08);}
+.licence-lightbox-note a{color:var(--rust);}
 .taspo-dark-band{background:var(--ink); color:var(--paper); padding:92px 0;}
 .taspo-dark-band .eyebrow{margin-bottom:18px;}
 .taspo-dark-band h2{color:#faf6ec; font-size:clamp(1.8rem, 3vw, 2.4rem); max-width:26ch; margin-bottom:20px;}

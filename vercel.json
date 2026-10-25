@@ -4,5 +4,12 @@
       "source": "/sustainable-mining-tanzania-shimu",
       "destination": "/sustainable-mining-tanzania-shimu.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/((?!maintenance.html$|images/shimu-logo.svg$|images/shimu-logo-mark.png$).*)",
+      "destination": "/maintenance.html",
+      "permanent": false
+    }
   ]
 }
